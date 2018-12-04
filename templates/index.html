@@ -1,0 +1,71 @@
+    {% extends "bootstrap/base.html" %}
+    {% import "bootstrap/wtf.html" as wtf %}
+
+    {%block title%}
+    Image Classifier
+    {% endblock %}
+    {% block styles %}
+        {{super()}}
+        <link rel="stylesheet" href="{{url_for('static', filename='css\style.css')}}">
+    {%endblock %}
+
+    {%block content%}
+        <div class="container">
+        <!-- Grid row -->
+          <div class="row">
+            <div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="text-center default-text py-3"><i class="fa fa-lock"></i> Login:</h3>
+                    <form action="/result" method="post">
+                        <div class="md-form">
+                            <i class="fa fa-envelope prefix grey-text"></i>
+                            <input type="text" id="red" name="red" class="form-control">
+                            <label for="red">Red</label>
+                        </div>
+                        <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="green" name="green" class="form-control">
+                                <label for="green">Green</label>
+                        </div>
+                        <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="blue" name="blue" class="form-control">
+                                <label for="blue">Blue</label>
+                        </div>
+                        <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="contrast" name="contrast" class="form-control">
+                                <label for="contrast">Contrast</label>
+                        </div>
+                        <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="correlation" name="correlation" class="form-control">
+                                <label for="correlation">Correlation</label>
+                        </div>
+                        <div class="md-form">
+                                <i class="fa fa-envelope prefix grey-text"></i>
+                                <input type="text" id="energy" name="energy" class="form-control">
+                                <label for="energy">Energy</label>
+                        </div>
+                        <div class="md-form">
+                            <i class="fa fa-lock prefix grey-text"></i>
+                            <input type="text" id="homogenity" name="homogenity" class="form-control">
+                            <label for="homogenity">Homogenity</label>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-default waves-effect waves-light" value="Predict">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
+    {%endblock %}
+
+    {%block scripts%}
+    {{ super() }}
+    <script src="{{url_for('.static', filename='static\script.js')}}"></script>
+    {%endblock %}

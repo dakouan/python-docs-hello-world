@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%block title%}
+    Image Classifier
+{% endblock %}
+{% block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+{%endblock %}
+
+{%block content%}
+  <p>Chances of being a specific mineral</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>PB</th>
+        <th>Cu</th>
+        <th>Zn</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for value in result %}
+        <td> {{ value }} </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+{%endblock %}
+
+{%block scripts%}
+    {{ super() }}
+    <script src="{{url_for('.static', filename='js/script.js')}}"></script>
+{%endblock %}
